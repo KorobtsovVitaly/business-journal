@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE INTERNET | Global Nervous System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --bg: #050507;
+            --surface: #0f0f13;
+            --border: #1f1f25;
+            --text-main: #e4e4e7;
+            --text-muted: #71717a;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .mono { font-family: 'Space Grotesk', sans-serif; }
+        
+        /* Utility */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-title { 
+            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; 
+            color: var(--accent); margin-bottom: 3rem; display: block; 
+        }
+
+        /* Hero */
+        header {
+            min-height: 90vh; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+            background: radial-gradient(circle at 50% 120%, #1e1b4b 0%, var(--bg) 60%);
+        }
+        .hero-content { text-align: center; z-index: 2; max-width: 900px; padding: 2rem; }
+        .hero-content h1 { 
+            font-size: clamp(3.5rem, 10vw, 7rem); line-height: 0.9; 
+            background: linear-gradient(to bottom, #fff 40%, #555 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+        }
+        .hero-content p { font-size: 1.3rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+        /* Stats Strip */
+        .stats-strip {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+            background: var(--surface);
+        }
+        .stat-item { padding: 3rem 2rem; border-right: 1px solid var(--border); text-align: center; }
+        .stat-item:last-child { border-right: none; }
+        .stat-val { font-size: 2.5rem; font-weight: 700; color: #fff; display: block; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+
+        /* Content Sections */
+        section { padding: 6rem 0; }
+        
+        .split-layout {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+        }
+        .text-block h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: #fff; }
+        .text-block p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.1rem; }
+        
+        .visual-block {
+            background: var(--surface); border: 1px solid var(--border);
+            height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .visual-block::after {
+            content: ''; position: absolute; inset: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 49px, var(--border) 50px);
+            opacity: 0.3;
+        }
+
+        /* Bento Grid for Topics */
+        .bento-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+        }
+        .bento-card {
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 2.5rem; border-radius: 16px; transition: 0.3s;
+        }
+        .bento-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .bento-large { grid-column: span 2; }
+        .bento-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #fff; }
+        .bento-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 3rem; border-left: 1px solid var(--border); }
+        .timeline-item { margin-bottom: 3rem; position: relative; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -3.35rem; top: 0.5rem;
+            width: 12px; height: 12px; background: var(--accent); border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent);
+        }
+        .year { font-size: 1.2rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; display: block; }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--border);
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .stats-strip { grid-template-columns: 1fr 1fr; }
+            .split-layout { grid-template-columns: 1fr; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-large { grid-column: span 1; }
+            .stat-item { border-bottom: 1px solid var(--border); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content">
+            <h1>THE GLOBAL<br>NERVOUS SYSTEM</h1>
+            <p>Невидимая инфраструктура, которая изменила цивилизацию навсегда. От медных проводов до квантовых вычислений.</p>
+        </div>
+    </header>
+
+    <!-- Статистика -->
+    <div class="stats-strip">
+        <div class="stat-item"><span class="stat-val">5.4B</span><span class="stat-label">Людей онлайн</span></div>
+        <div class="stat-item"><span class="stat-val">1.13B</span><span class="stat-label">Веб-сайтов</span></div>
+        <div class="stat-item"><span class="stat-val">402M</span><span class="stat-label">Терабайт данных/день</span></div>
+        <div class="stat-item"><span class="stat-val">1.7M</span><span class="stat-label">Км подводных кабелей</span></div>
+    </div>
+
+    <!-- Секция 1: Инфраструктура -->
+    <section class="container">
+        <span class="section-title">01. Физический слой</span>
+        <div class="split-layout">
+            <div class="text-block">
+                <h2>Интернет — это не облако.<br>Это кабели на дне океана.</h2>
+                <p>Мы привыкли думать о сети как о чем-то эфемерном, но на самом деле она состоит из физических объектов. Более 99% всего международного трафика передается через оптоволоконные кабели толщиной с садовый шланг, проложенные по дну морей.</p>
+                <p>Эти кабели соединяют континенты. Если акула или якорь корабля повредит такой кабель, целые страны могут остаться без связи. Это хрупкая артерия нашей цивилизации.</p>
+            </div>
+            <div class="visual-block">
+                <div style="font-size: 4rem; opacity: 0.5;">🌊 🔌 🌍</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 2: История -->
+    <section class="container" style="background: var(--surface); padding: 6rem 2rem; border-radius: 20px;">
+        <span class="section-title">02. Эволюция протокола</span>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="year">1969 — ARPANET</span>
+                <p>Первое сообщение «LO» (должно было быть LOGIN) отправлено между UCLA и Стэнфордом. Сеть пережила ядерную атаку в теории, но на практике рухнула от одного символа.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="year">1983 — TCP/IP</span>
+                <p>Винтон Серф и Боб Кан создают универсальный язык для сетей. Разрозненные компьютеры наконец смогли понимать друг друга. Рождение современного Интернета.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="year">1991 — World Wide Web</span>
+                <p>Тим Бернерс-Ли делает сеть доступной для всех, а не только для ученых. Появляются гиперссылки, браузеры и первые страницы.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="year">2007 — Мобильная революция</span>
+                <p>iPhone превращает интернет в карманного спутника. Трафик мобильных устройств впервые превышает десктопный.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 3: Темы (Bento Grid) -->
+    <section class="container">
+        <span class="section-title">03. Экосистема</span>
+        <div class="bento-grid">
+            <article class="bento-card bento-large">
+                <h3>Deep Web vs Dark Web</h3>
+                <p>Поисковики индексируют лишь 4% сети (Surface Web). Остальное — Deep Web: базы данных банков, медицинские карты, научные архивы. Dark Web — это крошечная часть Deep Web, доступная только через специальные браузеры (Tor), где царит анонимность.</p>
+            </article>
+            <article class="bento-card">
+                <h3>Кибервойны</h3>
+                <p>Интернет стал пятым театром военных действий после земли, моря, воздуха и космоса. Атаки на электростанции и больницы стали реальностью.</p>
+            </article>
+            <article class="bento-card">
+                <h3>Алгоритмы внимания</h3>
+                <p>Соцсети оптимизированы не для счастья, а для вовлечения. Гнев и страх удерживают внимание лучше, чем радость. Мы живем в экономике внимания.</p>
+            </article>
+            <article class="bento-card bento-large">
+                <h3>Web 3.0 и Децентрализация</h3>
+                <p>Попытка вернуть интернет к истокам. Блокчейн, криптография и отсутствие единого центра управления. Сеть, которой нельзя запретить существовать.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Секция 4: Будущее -->
+    <section class="container">
+        <span class="section-title">04. Горизонт событий</span>
+        <div class="split-layout">
+            <div class="visual-block" style="order: -1;">
+                <div style="font-size: 4rem; opacity: 0.5;">🧠 ⚡️ 🛰️</div>
+            </div>
+            <div class="text-block">
+                <h2>Слияние биологии и кремния</h2>
+                <p>Следующий шаг — прямой интерфейс мозг-компьютер. Neuralink и аналоги стремятся убрать посредников (экраны, клавиатуры). Интернет станет частью нашего сознания.</p>
+                <p>Квантовый интернет обещает абсолютную безопасность и мгновенную передачу состояний. Но он также сделает бессмысленным текущее шифрование. Гонка уже началась.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 THE INTERNET ARCHIVE. Designed by Leva.</p>
+        <p style="margin-top: 1rem; opacity: 0.5;">Knowledge is power. Connection is everything.</p>
+    </footer>
+
+</body>
+</html>
